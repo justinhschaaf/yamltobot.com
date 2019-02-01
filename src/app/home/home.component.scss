@@ -1,0 +1,80 @@
+
+// Banner Background for Home
+.banner_home {
+    background-image: url('../../assets/images/home_banner.png');
+}
+
+// Config, Run, Done.
+.home_steps_container {
+
+    display: flex;
+
+    .home_step {
+
+        width: 30%;
+        padding: 1%;
+        margin: auto;
+        border: 1pt solid #cccccc;
+        border-radius: 10pt;
+
+        text-align: center;
+
+        img {
+
+            width: 98%; // 250pt
+            height: 150pt; // 160pt
+
+            border-radius: 10pt;
+
+        }
+
+    }
+
+}
+
+// For the "Let's Get Started" section
+.home_started_container {
+
+    display: flex;
+
+    .home_started_object {
+
+        width: 45%;
+        margin: auto;
+
+        border: 1pt solid #cccccc;
+        border-radius: 10pt;
+
+        .home_started_object_header {
+
+            padding: 1pt;
+
+            text-align: center;
+            border-bottom: 1pt solid #cccccc;
+            border-radius: 10pt 10pt 0 0;
+            background-color: #eeeeee;
+
+        }
+
+        .home_started_object_content {
+            
+            padding: 0pt;
+            display: flex;
+
+            button {
+                width: 50%;
+            }
+
+            .discord {
+                border-radius: 0 0 0 10pt;
+            }
+
+            .twitch {
+                border-radius: 0 0 10pt 0;
+            }
+
+        }
+
+    }
+
+}

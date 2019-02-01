@@ -1,0 +1,146 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    font-family: 'Roboto', 'Segoe UI Emoji', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+// Site Header, Containing YamlToBot Logo and Text
+#site_header {
+
+    display: flex;
+
+    background-color: #555555;
+    color: #FFFFFF;
+
+    #logo {
+        margin: 5pt 15pt;
+        width: 70pt;
+    }
+
+    #title {
+        margin: 5pt 15pt;
+        font-weight: medium;
+    }
+
+}
+
+// Tab Bar
+.tabbar {
+
+    display: flex;
+
+    background-color: #555555;
+
+    .tab {
+
+        height: 50pt;
+        width: 10%; // 128pt
+        padding: auto;
+
+        background-color: #FFFFFF;
+        box-shadow: 0 -3pt 8pt rgba(0, 0, 0, 0.2);
+
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+    }
+
+    .tab_deselected {
+
+        height: 48pt;
+        width: 10%; // 128pt
+        padding: auto;
+        
+        background-color: #555555;
+        color: #FFFFFF;
+        border: 1pt solid #444444;
+        text-align: center;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+    }
+
+    .tab_spacer {
+
+        height: 48pt;
+        width: 10%; // 128pt
+        padding: auto;
+        font-size: 0.1pt;
+        
+        background-color: #555555;
+        color: #555555;
+        text-align: center;
+
+    }
+
+}
+
+// Standard Button Styles
+button {
+
+    border-width: 0;
+    margin: auto;
+    padding: 0 10pt;
+
+}
+
+// Styles for different YamlToBot platforms
+.discord {
+    background-color: #7289DA;
+    color: #ffffff;
+}
+
+.twitch {
+    background-color: #6441A4;
+    color: #ffffff;
+}
+
+// Banner image CSS
+.banner {
+
+    width: 75%;
+    height: 150pt;
+    text-align: center;
+    padding: 25pt;
+    margin: 20pt auto;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+
+    color: #FFFFFF;
+    border-radius: 10pt;
+
+    .banner_content {
+
+        margin: auto;
+        padding: 25pt;
+        height: 100pt;
+
+    }
+
+}
+
+// Site body content
+.content {
+
+    margin: 0 auto;
+    width: 75%;
+    padding: 8pt;
+    background-color: #FFFFFF;
+
+}

@@ -1,0 +1,1 @@
+YamlToBot was originally developed by **[Justin Schaaf](https://www.justinschaaf.com)**

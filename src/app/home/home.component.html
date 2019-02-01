@@ -1,0 +1,106 @@
+<div class="tabbar">
+
+  <div class="tab_spacer">
+    <p>Shh, this tab doesn't exist...</p>
+  </div>
+
+  <div class="tab">
+    <a routerLink="/home"><h3>Home</h3></a>
+  </div>
+  
+  <div class="tab_deselected">
+    <a routerLink="/download"><h3>Download</h3></a>
+  </div>
+
+  <div class="tab_deselected">
+    <a routerLink="/wiki"><h3>Wiki</h3></a>
+  </div>
+  
+  <div class="tab_deselected">
+    <a target="_blank" rel="noopener noreferrer" href="https://liberapay.com/justinhschaaf/"><h3>Donate</h3></a>
+  </div>
+
+</div>
+  
+<div class="banner banner_home">
+
+  <div class="banner_content">
+
+    <h1>YamlToBot</h1>
+
+    <h3>Make chat bots easily.</h3>
+
+  </div>
+
+</div>
+
+<div class="content">
+
+  <h2>What is YamlToBot?</h2>
+
+  <p>
+    YamlToBot is an application that allows you to host your own chat bot for Discord or Twitch.
+    You are able to customize your bot with a wide range of commands through a simple configuration
+    file, or you could even make your own custom scripts to run!
+  </p>
+
+  <br>
+
+  <div class="home_steps_container">
+
+    <div class="home_step">
+
+      <img src="../../assets/images/home_step_0.png">
+
+      <h2>Configure,</h2>
+
+    </div>
+
+    <div class="home_step">
+
+      <img src="../../assets/images/home_step_1.png">
+
+      <h2>Run,</h2>
+
+    </div>
+
+    <div class="home_step">
+
+      <img src="../../assets/images/home_step_2.png">
+
+      <h2>Done!</h2>
+
+    </div>
+
+  </div>
+
+  <br>
+
+  <h1 align="center">Ready to get started?</h1>
+
+  <div class="home_started_container">
+
+    <div class="home_started_object">
+
+      <div class="home_started_object_header">
+        <h2>Download</h2>
+      </div>
+
+      <div class="home_started_object_content">
+        <button class="button discord" (click)="downloadDiscord()"><h3>Discord</h3></button>
+        <button class="button twitch" (click)="downloadTwitch()"><h3>Twitch</h3></button>
+      </div>
+
+    </div>
+
+    <div class="home_started_object">
+
+      <div class="home_started_object_header">
+        <h2>Wiki</h2>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
