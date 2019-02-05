@@ -1,4 +1,4 @@
-import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -12,12 +12,25 @@ import { WikiService } from '../wiki.service';
 })
 export class WikiComponent implements OnInit {
 
+  wikidir = "../../assets/wiki/";
+  title: string;
   content: string;
-  sidebar: string;
-  footer: string;
+  sidebar = this.wikidir + "_Sidebar" + ".md";
+  footer = this.wikidir + "_Footer" + ".md";
 
   constructor(private route: ActivatedRoute, private location: Location, private wiki: WikiService, public md: MarkdownService) {
-    this.getWikiPage();
+
+    var name = this.route.snapshot.paramMap.getAll("page");
+    var module = this.route.snapshot.paramMap.getAll("module");
+    
+    if (module.length > 0) {
+      this.title = module[0].toLocaleUpperCase() + " :: " + name[0].replace("-", " ").replace("-", " ").replace("-", " ");
+      this.content = this.wikidir + module[0] + "/" + name[0] + ".md";
+    } else {
+      this.title = name[0].replace("-", " ");
+      this.content = this.wikidir + name[0] + ".md";
+    }
+
   }
 
   ngOnInit() {
@@ -34,67 +47,6 @@ export class WikiComponent implements OnInit {
                '</a>' + text +
              '</h' + level + '>';
     };
-
-    // Configure image max width
-    this.md.renderer.image = (href: string, title: string, text: string) => {
-      // Based off of https://github.com/markedjs/marked/blob/master/lib/marked.js#L1056-L1068
-      var out = '<img src="' + href + '" alt="' + title + '" style="max-width: 90%;"';
-      if (title) {
-        out += ' title="' + title + '"';
-      }
-      out += ">";
-      return out;
-    };
-
-  }
-
-  getWikiPage() {
-
-    var name = this.route.snapshot.paramMap.getAll("page");
-    var module = this.route.snapshot.paramMap.getAll("module");
-    var md = this.md;
-
-    console.log(module);
-    
-    var content = "";
-    var sidebar = "";
-    var footer = "";
-
-    var getContentPromise = this.wiki.getWikiPage(name, module);
-    getContentPromise.then(function(text) {
-      content = text;
-    });
-
-    var getSidebarPromise = this.wiki.getWikiPage(["_Sidebar"], []);
-    getSidebarPromise.then(function(text) {
-      sidebar = text;
-    });
-
-    var getFooterPromise = this.wiki.getWikiPage(["_Footer"], []);
-    getFooterPromise.then(function(text) {
-      footer = text;
-    });
-
-    setTimeout(function() {
-
-      // Update the main Wiki content
-      this.content = content;
-      if (module.length > 0) {
-        document.getElementById("wikicontent_title").innerHTML = "<h1>" + module[0].toLocaleUpperCase() + " :: " + name[0].replace("-", " ").replace("-", " ").replace("-", " ") + "<\h1>"
-      } else {
-        document.getElementById("wikicontent_title").innerHTML = "<h1>" + name[0].replace("-", " ") + "<\h1>"
-      }
-      document.getElementById("wikicontent").innerHTML = md.compile(this.content);
-
-      // Update the sidebar
-      this.sidebar = sidebar;
-      document.getElementById("sidebar").innerHTML = md.compile(this.sidebar);
-
-      // Update the footer
-      this.footer = footer;
-      document.getElementById("footer").innerHTML = md.compile(this.footer);
-
-    }, 500);
 
   }
 

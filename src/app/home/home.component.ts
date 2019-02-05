@@ -9,18 +9,7 @@ import { DownloadsService } from '../downloads.service';
 })
 export class HomeComponent implements OnInit {
 
-  public latestRelease: {};
-
   constructor(private downloadService: DownloadsService) {
-
-    setTimeout(function() {
-
-      this.latestRelease = downloadService.getLatestRelease();
-
-      console.log(this.latestRelease);
-
-    }, 500);
-
   }
 
   ngOnInit() {
@@ -33,13 +22,20 @@ export class HomeComponent implements OnInit {
 
   downloadDiscord() {
 
-    var latestRelease2 = this.latestRelease;
-    console.log(latestRelease2);
-    window.open(this.downloadService.getServiceDownloadLink(this.latestRelease, "discord"));
+    var ds = this.downloadService;
+    ds.getLatestRelease().then(function(release) {
+      window.open(ds.getServiceDownloadLink(release, "discord"));
+    });
+
   }
 
   downloadTwitch() {
-    window.open(this.downloadService.getServiceDownloadLink(this.latestRelease, "twitch"));
+
+    var ds = this.downloadService;
+    ds.getLatestRelease().then(function(release) {
+      window.open(ds.getServiceDownloadLink(release, "twitch"));
+    });
+    
   }
 
 }

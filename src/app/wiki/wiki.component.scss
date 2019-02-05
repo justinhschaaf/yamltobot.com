@@ -1,87 +1,63 @@
-
-#wiki {
+.wikicontent {
     
-    display: flex;
-
-    h1 {
-        border-bottom: 1pt solid #cccccc;
-        padding-bottom: 0.3em;
-    }
-
-    /*
-    #wikicontent_container {
+    #wiki {
+        
+        display: flex;
+        flex-wrap: wrap-reverse;
     
-        border: 1pt solid #cccccc;
-        border-radius: 10pt;
-        width: 70%;
-        margin: 0 auto auto;
-    
-        #wikicontent_title {
-    
-            padding: 1pt;
-    
-            text-align: center;
-            border-bottom: 1pt solid #cccccc;
-            border-radius: 10pt 10pt 0 0;
-            background-color: #eeeeee;
-    
-        }
-    
-        #wikicontent {
-            margin: 8pt;
-        }
-    
-    }
-    */
-
-    #wikicontent_container {
-        width: 70%;
-        margin: 0 auto auto;
-    
-        #wikicontent_title {
-    
-            padding: 1pt;
-    
-            text-align: center;
-            border-bottom: 1pt solid #cccccc;
-    
-        }
-    
-        #wikicontent {
-            margin: 8pt;
-
-            img {
-                max-width: 100%;
+        #wikicontent_container {
+            width: 70%;
+            min-width: 240pt;
+            margin: 0 auto auto;
+        
+            #wikicontent_title {
+        
+                padding: 1pt;
+        
+                text-align: center;
+                border-bottom: 0.5pt solid #cccccc;
+        
             }
-
+        
+            #wikicontent {
+                margin: 8pt;
+    
+                img {
+                    max-width: 100%;
+                }
+    
+            }
+        
         }
     
-    }
-
-    #sidebar_container {
-    
-        border: 1pt solid #cccccc;
-        border-radius: 10pt;
-        width: 25%;
-        margin: 0 auto auto;
-    
-        #sidebar {
-            margin: 8pt;
+        #sidebar_container {
+        
+            border: 1pt solid #cccccc;
+            border-radius: 10pt;
+            width: 25%;
+            min-width: 180pt;
+            margin: 0 auto auto;
+        
+            #sidebar {
+                margin: 8pt;
+            }
+        
         }
     
-    }
-
-}
-
-#footer_container {
-
-    border: 1pt solid #cccccc;
-    border-radius: 10pt;
-    width: 70%;
-    margin: 10pt 0;
-
-    #footer {
-        margin: 8pt;
+        #footer_container {
+        
+            border: 1pt solid #cccccc;
+            border-radius: 10pt;
+            width: 70%;
+            min-width: 240pt;
+            margin: 10pt 0;
+        
+            #footer {
+                margin: 8pt;
+            }
+        
+        }
+    
     }
 
 }

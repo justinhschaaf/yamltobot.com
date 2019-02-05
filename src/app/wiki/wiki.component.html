@@ -22,23 +22,29 @@
 
 </div>
 
-<div class="content">
+<div class="content wikicontent">
 
   <div id="wiki">
 
+    <div id="footer_container">
+      <div id="footer">
+        <markdown [src]="footer"></markdown>
+      </div>
+    </div>
+
     <div id="wikicontent_container">
-      <div id="wikicontent_title"></div>
-      <div id="wikicontent"></div>
+      <div id="wikicontent_title"><h1>{{ title }}</h1></div>
+      <div id="wikicontent">
+        <markdown [src]="content"></markdown>
+      </div>
     </div>
 
     <div id="sidebar_container">
-      <div id="sidebar"></div>
+      <div id="sidebar">
+        <markdown [src]="sidebar"></markdown>
+      </div>
     </div>
 
-  </div>
-
-  <div id="footer_container">
-    <div id="footer"></div>
   </div>
 
 </div>

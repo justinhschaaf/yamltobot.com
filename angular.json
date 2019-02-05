@@ -28,7 +28,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/prismjs/themes/prism-solarizedlight.css"
+              "node_modules/prismjs/themes/prism.css"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js",

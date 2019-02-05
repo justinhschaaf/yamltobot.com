@@ -1,13 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto|IBM+Plex+Mono');
 
 * {
     font-family: 'Roboto', 'Segoe UI Emoji', sans-serif;
+    flex-wrap: wrap;
 }
 
 body {
     margin: 0;
+}
+
+a {
+    text-decoration: underline;
+    color: #fa3;
 }
 
 // Site Header, Containing YamlToBot Logo and Text
@@ -37,6 +43,11 @@ body {
 
     background-color: #555555;
 
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
     .tab {
 
         height: 50pt;
@@ -47,11 +58,6 @@ body {
         box-shadow: 0 -3pt 8pt rgba(0, 0, 0, 0.2);
 
         text-align: center;
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
 
     }
 
@@ -65,11 +71,6 @@ body {
         color: #FFFFFF;
         border: 1pt solid #444444;
         text-align: center;
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
 
     }
 
@@ -111,7 +112,7 @@ button {
 // Banner image CSS
 .banner {
 
-    width: 75%;
+    max-width: 720pt;
     height: 150pt;
     text-align: center;
     padding: 25pt;
@@ -139,8 +140,70 @@ button {
 .content {
 
     margin: 0 auto;
-    width: 75%;
+    max-width: 720pt;
     padding: 8pt;
     background-color: #FFFFFF;
+
+}
+
+.footer {
+
+    margin: 48pt 0 0 0;
+    padding: 10pt;
+    background-color: #555555;
+    color: #ffffff;
+
+    .footer_content {
+
+        max-width: 720pt;
+        margin: auto;
+        display: flex;
+
+        .footer_column {
+            min-width: 240pt;
+            width: 30%;
+        }
+
+    }
+
+}
+
+// Markdown Custom Styling
+markdown {
+    
+    h1, h2, h3 {
+        border-bottom: 0.5pt solid #cccccc;
+        padding-bottom: 0.3em;
+    }
+
+    img {
+        max-width: 90%;
+    }
+
+    table {
+
+        border: 0.5pt solid #cccccc;
+        border-collapse: collapse;
+
+    }
+
+    table, th, td {
+        border: 0.5pt solid #cccccc;
+    }
+
+    // From https://www.w3schools.com/Css/css_table.asp
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    code[class*="language-"], pre[class*="language-"] {
+
+        background: #f2f2f2;
+
+        * {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+    }
 
 }

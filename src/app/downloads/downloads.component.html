@@ -1,3 +1,80 @@
-<p>
-  downloads works!
-</p>
+<div class="tabbar">
+
+  <div class="tab_spacer">
+    <p>Shh, this tab doesn't exist...</p>
+  </div>
+
+  <div class="tab_deselected">
+    <a routerLink="/home"><h3>Home</h3></a>
+  </div>
+  
+  <div class="tab">
+    <a routerLink="/download"><h3>Download</h3></a>
+  </div>
+
+  <div class="tab_deselected">
+    <a routerLink="/wiki"><h3>Wiki</h3></a>
+  </div>
+  
+  <div class="tab_deselected">
+    <a target="_blank" rel="noopener noreferrer" href="https://liberapay.com/justinhschaaf/"><h3>Donate</h3></a>
+  </div>
+
+</div>
+
+<div class="content">
+
+  <h1 class="title">Downloads</h1>
+
+  <div class="featured">
+
+    <div class="featured_object">
+
+      <div class="featured_object_header stable">
+        <h3>Latest Release</h3>
+      </div>
+
+      <div class="featured_object_content">
+        <button class="button discord" (click)="download(latest, 'discord')"><h3>Discord</h3></button>
+        <button class="button twitch" (click)="download(latest, 'twitch')"><h3>Twitch</h3></button>
+      </div>
+
+    </div>
+
+    <div class="featured_object">
+
+      <div class="featured_object_header pre">
+        <h3>Latest Pre Release</h3>
+      </div>
+
+      <div class="featured_object_content">
+        <button class="button discord" (click)="download(latestPre, 'discord')"><h3>Discord</h3></button>
+        <button class="button twitch" (click)="download(latestPre, 'twitch')"><h3>Twitch</h3></button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="downloads_table">
+
+    <div class="downloads_table_header">
+      <h3>Other Downloads</h3>
+    </div>
+
+    <div *ngFor="let release of releases; index as i" class="downloads_table_item">
+
+      <div [ngClass]="{'pre': release.prerelease, 'stable': i == 0 && !release.prerelease}" class="downloads_table_item_name">
+        <h4>{{ release.name }}</h4>
+      </div>
+
+      <button class="button discord" (click)="download(release, 'discord')"><h3>Discord</h3></button>
+      <button [ngClass]="{'end': i + 1 == releases.length}" class="button twitch" (click)="download(release, 'twitch')"><h3>Twitch</h3></button>
+
+    </div>
+
+  </div>
+
+</div>

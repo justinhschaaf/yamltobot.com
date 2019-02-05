@@ -2,7 +2,7 @@
 <div id="site_header">
   
   <div id="logo">
-    <img src="../assets/logos/yamltobot-logo.svg">
+    <a routerLink="/home"><img src="assets/logos/yamltobot-logo.svg"></a>
   </div>
 
   <div id="title">
@@ -12,3 +12,45 @@
 </div>
 
 <router-outlet></router-outlet>
+
+<div class="footer">
+
+  <div class="footer_content">
+    
+    <div class="footer_column">
+
+      <h3>Sitemap</h3>
+
+      <p><a routerLink="/home">Home</a></p>
+
+      <p><a routerLink="/download">Download</a></p>
+
+      <p><a routerLink="/wiki">Wiki</a></p>
+
+    </div>
+    
+    <div class="footer_column">
+
+      <h3>External Links</h3>
+
+      <p><a href="https://justinschaaf.com">Personal Website</a></p>
+
+      <p><a href="https://liberapay.com/justinhschaaf">Donate</a></p>
+
+      <p><a href="https://github.com/justinhschaaf/YamlToBot">YamlToBot Source</a></p>
+
+      <p><a href="https://github.com/justinhschaaf/yamltobot.com">Website Source</a></p>
+
+    </div>
+    
+    <div class="footer_column">
+
+      <h3>Wiki Pages</h3>
+
+      <markdown src="assets/wiki/_Pages.md"></markdown>
+
+    </div>
+
+  </div>
+
+</div>

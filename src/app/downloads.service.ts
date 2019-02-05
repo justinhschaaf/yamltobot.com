@@ -8,56 +8,87 @@ import { Observable } from 'rxjs';
 })
 export class DownloadsService {
 
+  url = "https://api.github.com/repos/justinhschaaf/YamlToBot/releases";
+
   releases: any[];
   latest: {};
   latestPre: {};
 
   constructor(private http: HttpClient) {
+  }
 
-    const url = "https://api.github.com/repos/justinhschaaf/YamlToBot/releases";
+  public getReleases(): Promise<any[]> {
 
-    // https://egghead.io/lessons/angular-fetch-data-from-an-api-using-the-httpclient-in-angular
-    var releasesHttp = this.http.get(url);
+    return new Promise((resolve, reject) => {
 
-    releasesHttp.forEach((value) => {
-      
-      this.releases = Object.keys(value).map(i => value[i]);
+      // Most of this is based on https://egghead.io/lessons/angular-fetch-data-from-an-api-using-the-httpclient-in-angular
+      var releasesHttp = this.http.get(this.url);
+      releasesHttp.forEach((value) => {
+        
+        var releases = Object.keys(value).map(i => value[i]);
+        resolve(releases);
 
-      for (var i = 0; i < this.releases.length; i++) {
-
-        var release = this.releases[i];
-
-        if (release["prerelease"] != true && this.latest == undefined) {
-          this.latest = release;
-        } else if (release["prerelease"] == true && this.latestPre == undefined) {
-          this.latestPre = release;
-        }
-
-      }
-
-      console.log(this.releases);
-      console.log(this.latest);
-      console.log(this.latestPre);
+      });
 
     });
 
   }
 
-  public getReleases(): {} {
-    return this.releases;
+  public getLatestRelease(): Promise<{}> {
+
+    return new Promise((resolve, reject) => {
+
+      var releases = this.getReleases();
+      releases.then(function(releases) {
+
+        var latest = undefined;
+
+        for (var i = 0; i < releases.length; i++) {
+
+          var release = releases[i];
+
+          if (release.prerelease != true && latest == undefined) {
+            latest = release;
+          }
+
+        }
+
+        resolve(latest);
+
+      });
+
+    });
+
   }
 
-  public getLatestRelease(): {} {
-    return this.latest;
+  public getLatestPrerelease(): Promise<{}> {
+
+    return new Promise((resolve, reject) => {
+
+      var releases = this.getReleases();
+      releases.then(function(releases) {
+
+        var latestPre = undefined;
+
+        for (var i = 0; i < releases.length; i++) {
+
+          var release = releases[i];
+
+          if (release.prerelease == true && latestPre == undefined) {
+            latestPre = release;
+          }
+
+        }
+
+        resolve(latestPre);
+
+      });
+
+    });
+
   }
 
-  public getLatestPrerelease(): {} {
-    return this.latestPre;
-  }
-
-  public getServiceDownloadLink(release: {}, service: string) {
-
-    console.log(release);
+  public getServiceDownloadLink(release: {}, service: string): string {
 
     var assets = [];
     assets = release["assets"];

@@ -1,4 +1,4 @@
-![# YamlToBot](https://raw.githubusercontent.com/justinhschaaf/YamlToBot/master/core/src/main/resources/assets/logo/logo512.png)
+![# YamlToBot](assets/logos/yamltobot-logo256.png)
 
 Welcome to the YamlToBot wiki!
 Here you can learn to configure and use YamlToBot.
