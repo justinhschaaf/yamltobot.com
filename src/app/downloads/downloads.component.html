@@ -66,12 +66,12 @@
 
     <div *ngFor="let release of releases; index as i" class="downloads_table_item">
 
-      <div [ngClass]="{'pre': release.prerelease, 'stable': i == 0 && !release.prerelease}" class="downloads_table_item_name">
+      <div [ngClass]="{'pre': release.prerelease, 'stable': i == 0 && !release.prerelease, 'end_left': i + 1 == releases.length}" class="downloads_table_item_name">
         <h4>{{ release.name }}</h4>
       </div>
 
       <button class="button discord" (click)="download(release, 'discord')"><h3>Discord</h3></button>
-      <button [ngClass]="{'end': i + 1 == releases.length}" class="button twitch" (click)="download(release, 'twitch')"><h3>Twitch</h3></button>
+      <button [ngClass]="{'end_right': i + 1 == releases.length}" class="button twitch" (click)="download(release, 'twitch')"><h3>Twitch</h3></button>
 
     </div>
 

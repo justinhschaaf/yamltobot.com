@@ -87,10 +87,6 @@
         display: flex;
         height: 48pt;
 
-        .pre {
-            border-radius: 0 0 0 10pt;
-        }
-
         .downloads_table_item_name {
             width: 50%;
             text-align: center;
@@ -101,7 +97,11 @@
             height: 100%;
         }
 
-        .end {
+        .end_left {
+            border-radius: 0 0 0 10pt;
+        }
+
+        .end_right {
             border-radius: 0 0 10pt 0;
         }
 
