@@ -12,11 +12,11 @@ import { WikiService } from '../wiki.service';
 })
 export class WikiComponent implements OnInit {
 
-  wikidir = "../../assets/wiki/";
+  wikidir = "https://wikicontent.yamltobot.com/wikicontent/";
   title: string;
   content: string;
-  sidebar = this.wikidir + "_Sidebar" + ".md";
-  footer = this.wikidir + "_Footer" + ".md";
+  sidebar = this.wikidir + "--Sidebar" + ".md";
+  footer = this.wikidir + "--Footer" + ".md";
 
   constructor(private route: ActivatedRoute, private location: Location, private wiki: WikiService, public md: MarkdownService) {
 
@@ -25,7 +25,7 @@ export class WikiComponent implements OnInit {
     
     if (module.length > 0) {
       this.title = module[0].toLocaleUpperCase() + " :: " + name[0].replace("-", " ").replace("-", " ").replace("-", " ");
-      this.content = this.wikidir + module[0] + "/" + name[0] + ".md";
+      this.content = this.wikidir + module[0].toLowerCase() + "/" + name[0] + ".md";
     } else {
       this.title = name[0].replace("-", " ");
       this.content = this.wikidir + name[0] + ".md";
