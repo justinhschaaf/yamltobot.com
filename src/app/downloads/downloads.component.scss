@@ -1,3 +1,4 @@
+// For the heading that says "Downloads" to title the webpage
 .title {
 
     padding: 1pt;
@@ -7,20 +8,24 @@
 
 }
 
+// Colors for a stable release
 .stable {
     background-color: #eeffee;
     color: #008800;
 }
 
+// Colors for a prerelease
 .pre {
     background-color: #ffeeee;
     color: #880000;
 }
 
+// Featured downloads
 .featured {
 
     display: flex;
 
+    // Card element customizations
     .card {
 
         width: 45%;
@@ -41,13 +46,16 @@
 
 }
 
+// The table of downloads
 .downloads_table {
 
+    // Card element customizations
     .card {
 
         width: 95%;
         margin: auto;
 
+        // A row in the table
         .downloads_table_item {
 
             border-top: 1pt solid #cccccc;

@@ -1,3 +1,4 @@
+<!--The navigation bar at the top of the page, right under the YamlToBot logo-->
 <div class="tabbar">
 
   <div class="tab_spacer">
@@ -22,12 +23,14 @@
 
 </div>
 
+<!--The body of the webpage-->
 <div class="content">
 
   <h1 class="title">Downloads</h1>
 
   <div class="featured">
 
+    <!--The latest stable release-->
     <div class="card">
 
       <div class="card_header stable">
@@ -41,6 +44,7 @@
 
     </div>
 
+    <!--The latest prerelease-->
     <div class="card">
 
       <div class="card_header pre">
@@ -58,6 +62,7 @@
 
   <br>
 
+  <!--The table containing all of the releases-->
   <div class="downloads_table">
 
     <div class="card">
@@ -66,8 +71,10 @@
         <h3>Other Downloads</h3>
       </div>
   
+      <!--Iterate through each release-->
       <div *ngFor="let release of releases; index as i" class="downloads_table_item">
   
+        <!--The [ngClass] updates depending on if it's the latest stable release or if it is a prerelease-->
         <div [ngClass]="{'pre': release.prerelease, 'stable': i == 0 && !release.prerelease }" class="downloads_table_item_name">
           <h4>{{ release.name }}</h4>
         </div>

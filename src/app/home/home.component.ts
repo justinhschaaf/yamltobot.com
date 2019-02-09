@@ -13,29 +13,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    /*setInterval(function() {
-      console.log(this.latestRelease);
-    }, 1000);*/
-
   }
 
-  downloadDiscord() {
+  // Get the proper latest download link from the Download Service and send the user there
+  download(module: string) {
 
     var ds = this.downloadService;
     ds.getLatestRelease().then(function(release) {
-      window.open(ds.getServiceDownloadLink(release, "discord"));
+      window.open(ds.getServiceDownloadLink(release, module));
     });
 
-  }
-
-  downloadTwitch() {
-
-    var ds = this.downloadService;
-    ds.getLatestRelease().then(function(release) {
-      window.open(ds.getServiceDownloadLink(release, "twitch"));
-    });
-    
   }
 
 }

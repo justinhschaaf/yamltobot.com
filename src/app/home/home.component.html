@@ -1,3 +1,4 @@
+<!--The navigation bar at the top of the page, right under the YamlToBot logo-->
 <div class="tabbar">
 
   <div class="tab_spacer">
@@ -22,6 +23,7 @@
 
 </div>
   
+<!--The banner at the top of the page with a BG image and name-->
 <div class="banner banner_home">
 
   <div class="banner_content">
@@ -34,6 +36,7 @@
 
 </div>
 
+<!--The body of the webpage-->
 <div class="content">
 
   <h2>What is YamlToBot?</h2>
@@ -46,6 +49,7 @@
 
   <br>
 
+  <!--Promotional Phrase: "Configure, Run, Done!"-->
   <div class="home_steps_container">
 
     <div class="card">
@@ -76,8 +80,10 @@
 
   <br>
 
+  <!--Even though "align" is colored red in VS Code, it works perfectly fine-->
   <h1 align="center">Ready to get started?</h1>
 
+  <!--The container for the download and wiki cards-->
   <div class="home_started_container">
 
     <div class="card">
@@ -87,8 +93,8 @@
       </div>
 
       <div class="card_content">
-        <button class="button discord" (click)="downloadDiscord()"><h3>Discord</h3></button>
-        <button class="button twitch" (click)="downloadTwitch()"><h3>Twitch</h3></button>
+        <button class="button discord" (click)="download('discord')"><h3>Discord</h3></button>
+        <button class="button twitch" (click)="download('twitch')"><h3>Twitch</h3></button>
       </div>
 
     </div>

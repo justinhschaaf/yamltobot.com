@@ -1,3 +1,4 @@
+<!--The navigation bar at the top of the page, right under the YamlToBot logo-->
 <div class="tabbar">
 
   <div class="tab_spacer">
@@ -22,10 +23,17 @@
 
 </div>
 
+<!--The body of the webpage-->
 <div class="content wikicontent">
 
+  <!--The flex container of the wiki stuff-->
   <div id="wiki">
 
+    <!--
+      Start with the footer. In the SCSS for the wiki,
+      the content is reversed so that the sidebar appears
+      at the top on mobile.
+    -->
     <div id="footer_container">
       <div class="card">
         <div id="footer">
@@ -34,6 +42,7 @@
       </div>
     </div>
 
+    <!--The wiki page itself-->
     <div id="wikicontent_container">
       <div id="wikicontent_title"><h1>{{ title }}</h1></div>
       <div id="wikicontent">
@@ -41,6 +50,7 @@
       </div>
     </div>
 
+    <!--The sidebar-->
     <div id="sidebar_container">
       <div class="card">
         <div id="sidebar">

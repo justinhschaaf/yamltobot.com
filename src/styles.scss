@@ -1,21 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
 
+// Import Roboto and IBM Plex Mono
+// Roboto is the main font
+// IBM Plex Mono is for code blocks
 @import url('https://fonts.googleapis.com/css?family=Roboto|IBM+Plex+Mono');
 
+// Set font globally
 * {
     font-family: 'Roboto', 'Segoe UI Emoji', sans-serif;
     flex-wrap: wrap;
 }
 
+// Remove body margins, mostly for browsers with default body margin
 body {
     margin: 0;
 }
 
+// Set custom link styling, also to prevent purple links once they've been clicked
 a {
     text-decoration: underline;
     color: #fa3;
 }
 
+// Button custom CSS
 button {
 
     border-width: 0;
@@ -26,6 +32,7 @@ button {
 
 }
 
+// Button hover effect
 button:hover{
     text-shadow: 0pt 3pt 8pt rgba(0, 0, 0, 0.2);
 }
@@ -50,6 +57,7 @@ button:hover{
     transition: 0.3s;
     min-width: 200pt;
 
+    // Card header
     .card_header {
 
         padding: 1pt;
@@ -60,6 +68,7 @@ button:hover{
 
     }
 
+    // Card content
     .card_content {
         padding: 1pt;
     }
@@ -70,26 +79,6 @@ button:hover{
     box-shadow: 0pt 3pt 8pt rgba(0, 0, 0, 0.2);
 }
 
-// Site Header, Containing YamlToBot Logo and Text
-#site_header {
-
-    display: flex;
-
-    background-color: #555555;
-    color: #FFFFFF;
-
-    #logo {
-        margin: 5pt 15pt;
-        width: 70pt;
-    }
-
-    #title {
-        margin: 5pt 15pt;
-        font-weight: medium;
-    }
-
-}
-
 // Tab Bar
 .tabbar {
 
@@ -98,11 +87,13 @@ button:hover{
     overflow: hidden;
     padding: 5pt 0 0 0;
 
+    // Remove link styling
     a {
         text-decoration: none;
         color: inherit;
     }
 
+    // The current page
     .tab {
 
         height: 50pt;
@@ -141,6 +132,7 @@ button:hover{
         text-shadow: 0pt 3pt 8pt rgba(255, 255, 255, 0.2);
     }
 
+    // An invisible tab to prevent the tabs from starting at the edge
     .tab_spacer {
 
         height: 48pt;
@@ -165,15 +157,18 @@ button:hover{
     padding: 25pt;
     margin: 20pt auto;
 
+    // How the image is positioned in the banner
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
     background-attachment: local;
 
+    // Text color and border
     color: #FFFFFF;
     border-radius: 10pt;
 
+    // The text overlayed on the banner
     .banner_content {
 
         margin: auto;
@@ -194,40 +189,21 @@ button:hover{
 
 }
 
-.footer {
-
-    margin: 48pt 0 0 0;
-    padding: 10pt;
-    background-color: #555555;
-    color: #ffffff;
-
-    .footer_content {
-
-        max-width: 720pt;
-        margin: auto;
-        display: flex;
-
-        .footer_column {
-            min-width: 240pt;
-            width: 30%;
-        }
-
-    }
-
-}
-
 // Markdown Custom Styling
 markdown {
     
+    // Add a line under the top 3 headers
     h1, h2, h3 {
         border-bottom: 0.5pt solid #cccccc;
         padding-bottom: 0.3em;
     }
 
+    // Ensure images aren't comedically huge
     img {
         max-width: 90%;
     }
 
+    // Add a border to the table
     table {
 
         border: 0.5pt solid #cccccc;
@@ -239,11 +215,13 @@ markdown {
         border: 0.5pt solid #cccccc;
     }
 
+    // Have striped table rows
     // From https://www.w3schools.com/Css/css_table.asp
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
 
+    // Customize Prism's BG color and font
     code[class*="language-"], pre[class*="language-"] {
 
         background: #f2f2f2;

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { MarkdownService } from 'ngx-markdown';
-import { WikiService } from '../wiki.service';
 
 @Component({
   selector: 'y2b-wiki',
@@ -12,17 +10,32 @@ import { WikiService } from '../wiki.service';
 })
 export class WikiComponent implements OnInit {
 
+  /*
+    Initialize Variables
+  */
+
+  // The place where wiki files are stored. The paths should be the same as the one taken to get to the wiki page itself
   wikidir = "https://content.yamltobot.com/wikicontent/";
+
+  // The wiki page's title
   title: string;
+
+  // The location of the wiki page's content, sidebar, and footer
   content: string;
   sidebar = this.wikidir + "--Sidebar" + ".md";
   footer = this.wikidir + "--Footer" + ".md";
 
-  constructor(private route: ActivatedRoute, private location: Location, private wiki: WikiService, public md: MarkdownService) {
+  constructor(
+    private route: ActivatedRoute, 
+    //private wiki: WikiService, // The wiki service was used in alpha versions, but isn't anymore
+    public md: MarkdownService
+  ) {
 
+    // Get the wiki page's name and module from the path
     var name = this.route.snapshot.paramMap.getAll("page");
     var module = this.route.snapshot.paramMap.getAll("module");
     
+    // If a module is defined, add it to the content path
     if (module.length > 0) {
       this.title = module[0].toLocaleUpperCase() + " :: " + name[0].replace("-", " ").replace("-", " ").replace("-", " ");
       this.content = this.wikidir + module[0].toLowerCase() + "/" + name[0] + ".md";

@@ -1,10 +1,22 @@
+// The SCSS for the wiki
 .wikicontent {
     
+    /*
+        Most of these elements use IDS rather
+        than classes from when I used a different
+        system to fetch the markdown files and
+        display them rather than just having
+        ngx-markdown handle the rendering itself
+        and just passing the path to it.
+    */
+
+    // The wiki's flex container
     #wiki {
         
         display: flex;
         flex-wrap: wrap-reverse;
     
+        // The main wiki page
         #wikicontent_container {
             width: 70%;
             min-width: 240pt;
@@ -30,6 +42,7 @@
         
         }
     
+        // The sidebar
         #sidebar_container {
             
             width: 25%;
@@ -44,6 +57,7 @@
         
         }
     
+        // The wiki footer
         #footer_container {
 
             width: 70%;

@@ -1,8 +1,10 @@
 
+<!--The site's header, with the YamlToBot logo and text name-->
 <div id="site_header">
   
   <div id="logo">
-    <a routerLink="/home"><img src="assets/logos/yamltobot-logo.svg"></a>
+    <!--In case Angular can't find the desired page, allow the user to click the logo to go home-->
+    <a routerLink="/home"><img src="https://content.yamltobot.com/common/logos/logo.svg"></a>
   </div>
 
   <div id="title">
@@ -11,10 +13,13 @@
 
 </div>
 
+<!--The main content of the website, wherever the user goes-->
 <router-outlet></router-outlet>
 
+<!--The website's footer-->
 <div class="footer">
 
+  <!--Flex container for the 3 different footer columns-->
   <div class="footer_content">
     
     <div class="footer_column">

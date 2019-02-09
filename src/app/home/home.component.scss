@@ -9,6 +9,7 @@
 
     display: flex;
 
+    // Card element customization
     .card {
 
         width: 30%;
@@ -18,6 +19,8 @@
 
         text-align: center;
 
+        // Resize all of the images to be the same size in order for
+        // the text to line up and for the cards to be the same height
         img {
 
             width: 98%; // 250pt
@@ -41,6 +44,7 @@
 
     display: flex;
 
+    // Card element customization
     .card {
 
         width: 45%;
@@ -51,6 +55,7 @@
             padding: 0pt;
             display: flex;
 
+            // Set the buttons for downloading Discord/Twitch to 50% of the width of the card
             button {
                 width: 50%;
             }
