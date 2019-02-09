@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DownloadsService } from '../downloads.service';
 
 @Component({
-  selector: 'app-downloads',
+  selector: 'y2b-downloads',
   templateUrl: './downloads.component.html',
   styleUrls: ['./downloads.component.scss']
 })

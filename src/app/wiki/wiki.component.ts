@@ -6,13 +6,13 @@ import { MarkdownService } from 'ngx-markdown';
 import { WikiService } from '../wiki.service';
 
 @Component({
-  selector: 'app-wiki',
+  selector: 'y2b-wiki',
   templateUrl: './wiki.component.html',
   styleUrls: ['./wiki.component.scss']
 })
 export class WikiComponent implements OnInit {
 
-  wikidir = "https://wikicontent.yamltobot.com/wikicontent/";
+  wikidir = "https://content.yamltobot.com/wikicontent/";
   title: string;
   content: string;
   sidebar = this.wikidir + "--Sidebar" + ".md";

@@ -21,40 +21,18 @@
 
     display: flex;
 
-    .featured_object {
+    .card {
 
         width: 45%;
         margin: auto;
 
-        border: 1pt solid #cccccc;
-        border-radius: 10pt;
-
-        .featured_object_header {
-
-            padding: 1pt;
-
-            text-align: center;
-            border-bottom: 1pt solid #cccccc;
-            border-radius: 10pt 10pt 0 0;
-            //background-color: #eeeeee;
-
-        }
-
-        .featured_object_content {
+        .card_content {
             
             padding: 0pt;
             display: flex;
 
             button {
                 width: 50%;
-            }
-
-            .discord {
-                border-radius: 0 0 0 10pt;
-            }
-
-            .twitch {
-                border-radius: 0 0 10pt 0;
             }
 
         }
@@ -65,44 +43,27 @@
 
 .downloads_table {
 
-    width: 95%;
-    margin: auto;
+    .card {
 
-    border: 1pt solid #cccccc;
-    border-radius: 10pt;
+        width: 95%;
+        margin: auto;
 
-    .downloads_table_header {
+        .downloads_table_item {
 
-        padding: 1pt;
+            border-top: 1pt solid #cccccc;
+            display: flex;
+            height: 48pt;
 
-        text-align: center;
-        border-radius: 10pt 10pt 0 0;
-        background-color: #eeeeee;
+            .downloads_table_item_name {
+                width: 50%;
+                text-align: center;
+            }
 
-    }
+            button {
+                width: 25%;
+                height: 100%;
+            }
 
-    .downloads_table_item {
-
-        border-top: 1pt solid #cccccc;
-        display: flex;
-        height: 48pt;
-
-        .downloads_table_item_name {
-            width: 50%;
-            text-align: center;
-        }
-
-        button {
-            width: 25%;
-            height: 100%;
-        }
-
-        .end_left {
-            border-radius: 0 0 0 10pt;
-        }
-
-        .end_right {
-            border-radius: 0 0 10pt 0;
         }
 
     }

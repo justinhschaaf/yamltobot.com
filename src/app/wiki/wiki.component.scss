@@ -31,29 +31,33 @@
         }
     
         #sidebar_container {
-        
-            border: 1pt solid #cccccc;
-            border-radius: 10pt;
+            
             width: 25%;
             min-width: 180pt;
             margin: 0 auto auto;
         
-            #sidebar {
-                margin: 8pt;
+            .card {
+                #sidebar {
+                    margin: 8pt;
+                }
             }
         
         }
     
         #footer_container {
-        
-            border: 1pt solid #cccccc;
-            border-radius: 10pt;
+
             width: 70%;
             min-width: 240pt;
-            margin: 10pt 0;
+
+            .card {
+
+                width: 100%;
+                margin: 10pt 0;
         
-            #footer {
-                margin: 8pt;
+                #footer {
+                    margin: 8pt;
+                }
+
             }
         
         }

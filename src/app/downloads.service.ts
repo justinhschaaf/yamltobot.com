@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DownloadsService {
 
-  url = "https://api.github.com/repos/justinhschaaf/YamlToBot/releases";
+  url = "https://api.github.com/repos/YamlToBot/YamlToBot/releases";
 
   releases: any[];
   latest: {};

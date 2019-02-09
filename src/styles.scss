@@ -16,6 +16,60 @@ a {
     color: #fa3;
 }
 
+button {
+
+    border-width: 0;
+    margin: auto;
+    padding: 0 10pt;
+    background-color: #ccc;
+    transition: 0.3s;
+
+}
+
+button:hover{
+    text-shadow: 0pt 3pt 8pt rgba(0, 0, 0, 0.2);
+}
+
+// Styles for different YamlToBot platforms
+.discord {
+    background-color: #7289DA;
+    color: #ffffff;
+}
+
+.twitch {
+    background-color: #6441A4;
+    color: #ffffff;
+}
+
+// Cards
+.card {
+
+    border: 1pt solid #cccccc;
+    border-radius: 10pt;
+    overflow: hidden;
+    transition: 0.3s;
+    min-width: 200pt;
+
+    .card_header {
+
+        padding: 1pt;
+
+        text-align: center;
+        border-bottom: 1pt solid #cccccc;
+        background-color: #eeeeee;
+
+    }
+
+    .card_content {
+        padding: 1pt;
+    }
+
+}
+
+.card:hover {
+    box-shadow: 0pt 3pt 8pt rgba(0, 0, 0, 0.2);
+}
+
 // Site Header, Containing YamlToBot Logo and Text
 #site_header {
 
@@ -40,8 +94,9 @@ a {
 .tabbar {
 
     display: flex;
-
     background-color: #555555;
+    overflow: hidden;
+    padding: 5pt 0 0 0;
 
     a {
         text-decoration: none;
@@ -51,19 +106,26 @@ a {
     .tab {
 
         height: 50pt;
+        min-width: 80pt;
         width: 10%; // 128pt
         padding: auto;
 
         background-color: #FFFFFF;
-        box-shadow: 0 -3pt 8pt rgba(0, 0, 0, 0.2);
+        box-shadow: 0 3pt 8pt rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
 
         text-align: center;
 
     }
 
+    .tab:hover {
+        box-shadow: 0 1pt 8pt rgba(0, 0, 0, 0.4);
+    }
+
     .tab_deselected {
 
         height: 48pt;
+        min-width: 80pt;
         width: 10%; // 128pt
         padding: auto;
         
@@ -71,7 +133,12 @@ a {
         color: #FFFFFF;
         border: 1pt solid #444444;
         text-align: center;
+        transition: 0.3s;
 
+    }
+
+    .tab_deselected:hover {
+        text-shadow: 0pt 3pt 8pt rgba(255, 255, 255, 0.2);
     }
 
     .tab_spacer {
@@ -89,26 +156,6 @@ a {
 
 }
 
-// Standard Button Styles
-button {
-
-    border-width: 0;
-    margin: auto;
-    padding: 0 10pt;
-
-}
-
-// Styles for different YamlToBot platforms
-.discord {
-    background-color: #7289DA;
-    color: #ffffff;
-}
-
-.twitch {
-    background-color: #6441A4;
-    color: #ffffff;
-}
-
 // Banner image CSS
 .banner {
 
@@ -122,6 +169,7 @@ button {
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+    background-attachment: local;
 
     color: #FFFFFF;
     border-radius: 10pt;

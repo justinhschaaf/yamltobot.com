@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DownloadsService } from '../downloads.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'y2b-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

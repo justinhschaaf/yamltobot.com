@@ -28,26 +28,26 @@
 
   <div class="featured">
 
-    <div class="featured_object">
+    <div class="card">
 
-      <div class="featured_object_header stable">
+      <div class="card_header stable">
         <h3>Latest Release</h3>
       </div>
 
-      <div class="featured_object_content">
+      <div class="card_content">
         <button class="button discord" (click)="download(latest, 'discord')"><h3>Discord</h3></button>
         <button class="button twitch" (click)="download(latest, 'twitch')"><h3>Twitch</h3></button>
       </div>
 
     </div>
 
-    <div class="featured_object">
+    <div class="card">
 
-      <div class="featured_object_header pre">
+      <div class="card_header pre">
         <h3>Latest Pre Release</h3>
       </div>
 
-      <div class="featured_object_content">
+      <div class="card_content">
         <button class="button discord" (click)="download(latestPre, 'discord')"><h3>Discord</h3></button>
         <button class="button twitch" (click)="download(latestPre, 'twitch')"><h3>Twitch</h3></button>
       </div>
@@ -60,19 +60,23 @@
 
   <div class="downloads_table">
 
-    <div class="downloads_table_header">
-      <h3>Other Downloads</h3>
-    </div>
-
-    <div *ngFor="let release of releases; index as i" class="downloads_table_item">
-
-      <div [ngClass]="{'pre': release.prerelease, 'stable': i == 0 && !release.prerelease, 'end_left': i + 1 == releases.length}" class="downloads_table_item_name">
-        <h4>{{ release.name }}</h4>
+    <div class="card">
+  
+      <div class="card_header">
+        <h3>Other Downloads</h3>
       </div>
-
-      <button class="button discord" (click)="download(release, 'discord')"><h3>Discord</h3></button>
-      <button [ngClass]="{'end_right': i + 1 == releases.length}" class="button twitch" (click)="download(release, 'twitch')"><h3>Twitch</h3></button>
-
+  
+      <div *ngFor="let release of releases; index as i" class="downloads_table_item">
+  
+        <div [ngClass]="{'pre': release.prerelease, 'stable': i == 0 && !release.prerelease }" class="downloads_table_item_name">
+          <h4>{{ release.name }}</h4>
+        </div>
+  
+        <button class="button discord" (click)="download(release, 'discord')"><h3>Discord</h3></button>
+        <button class="button twitch" (click)="download(release, 'twitch')"><h3>Twitch</h3></button>
+  
+      </div>
+  
     </div>
 
   </div>

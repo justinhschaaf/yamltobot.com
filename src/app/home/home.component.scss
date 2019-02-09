@@ -9,15 +9,12 @@
 
     display: flex;
 
-    .home_step {
+    .card {
 
         width: 30%;
-        min-width: 200pt;
         height: 180pt;
         padding: 1%;
         margin: 10pt auto;
-        border: 1pt solid #cccccc;
-        border-radius: 10pt;
 
         text-align: center;
 
@@ -44,26 +41,12 @@
 
     display: flex;
 
-    .home_started_object {
+    .card {
 
         width: 45%;
-        margin: auto;
+        margin: 5pt auto;
 
-        border: 1pt solid #cccccc;
-        border-radius: 10pt;
-
-        .home_started_object_header {
-
-            padding: 1pt;
-
-            text-align: center;
-            border-bottom: 1pt solid #cccccc;
-            border-radius: 10pt 10pt 0 0;
-            background-color: #eeeeee;
-
-        }
-
-        .home_started_object_content {
+        .card_content {
             
             padding: 0pt;
             display: flex;
@@ -72,16 +55,7 @@
                 width: 50%;
             }
 
-            .discord {
-                border-radius: 0 0 0 10pt;
-            }
-
-            .twitch {
-                border-radius: 0 0 10pt 0;
-            }
-
             .wiki {
-                border-radius: 0 0 10pt 10pt;
                 width: 100%;
                 background-color: #ffffff;
             }

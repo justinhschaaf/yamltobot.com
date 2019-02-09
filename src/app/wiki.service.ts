@@ -22,7 +22,7 @@ export class WikiService {
       }
   
       // https://stackoverflow.com/questions/44601590/ionic-3-get-contents-of-an-asset-file
-      this.http.get("../assets/wiki" + location + ".md", {responseType: 'text'})
+      this.http.get("https://content.justinschaaf.com/wikicontent" + location + ".md", {responseType: 'text'})
       .subscribe(text => {
         resolve(text);
       });
