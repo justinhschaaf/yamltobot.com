@@ -6,4 +6,4 @@
 
 @echo off
 
-ng build && copy .\docs\index.html .\docs\404.html
+ng build && copy .\docs\index.html .\docs\404.html && copy .\CNAME_STORAGE .\docs\CNAME
