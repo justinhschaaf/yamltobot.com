@@ -13,6 +13,31 @@
 
 </div>
 
+<!--The navigation bar at the top of the page, right under the YamlToBot logo-->
+<div class="tabbar">
+
+  <div class="tab_spacer">
+    <p>Shh, this tab doesn't exist...</p>
+  </div>
+
+  <div class="tab_deselected" routerLink="/home" routerLinkActive="tab">
+    <a><h3>Home</h3></a>
+  </div>
+  
+  <div class="tab_deselected" routerLink="/download" routerLinkActive="tab">
+    <a><h3>Download</h3></a>
+  </div>
+
+  <div class="tab_deselected" routerLink="/wiki" routerLinkActive="tab">
+    <a><h3>Wiki</h3></a>
+  </div>
+  
+  <div class="tab_deselected">
+    <a target="_blank" rel="noopener noreferrer" href="https://liberapay.com/justinhschaaf/"><h3>Donate</h3></a>
+  </div>
+
+</div>
+
 <!--The main content of the website, wherever the user goes-->
 <router-outlet></router-outlet>
 

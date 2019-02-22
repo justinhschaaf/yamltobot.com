@@ -10,14 +10,14 @@ const routes: Routes = [
   
   // The main page should be "home"
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
 
   // Redirect to the main page
   {
-    path: 'home',
-    redirectTo: '',
+    path: '',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   

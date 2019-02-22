@@ -10,11 +10,91 @@
     #logo {
         margin: 5pt 15pt;
         width: 70pt;
+
+        img {
+            width: 70pt;
+            max-width: 70pt;
+        }
+
     }
 
     #title {
         margin: 5pt 15pt;
         font-weight: medium;
+    }
+
+}
+
+
+// Tab Bar
+.tabbar {
+
+    display: flex;
+    background-color: #555555;
+    overflow: hidden;
+    padding: 5pt 0 0 0;
+
+    // Remove link styling
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .tab_deselected {
+
+        height: 48pt;
+        min-width: 80pt;
+        width: 10%; // 128pt
+        padding: auto;
+        
+        background-color: #555555;
+        color: #FFFFFF;
+        border: 1pt solid #444444;
+        text-align: center;
+        transition: 0.3s;
+
+    }
+
+    .tab_deselected:hover {
+        //text-shadow: 0pt 3pt 8pt rgba(255, 255, 255, 0.2);
+        box-shadow: 0 3pt 8pt rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    // The current page
+    .tab {
+
+        height: 50pt;
+        min-width: 80pt;
+        width: 10%; // 128pt
+        padding: auto;
+
+        background-color: #FFFFFF;
+        color: #000000;
+        border: none;
+        box-shadow: 0 3pt 8pt rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+
+        text-align: center;
+
+    }
+
+    .tab:hover {
+        box-shadow: 0 1pt 8pt rgba(0, 0, 0, 0.4);
+    }
+
+    // An invisible tab to prevent the tabs from starting at the edge
+    .tab_spacer {
+
+        height: 48pt;
+        width: 10%; // 128pt
+        padding: auto;
+        font-size: 0.1pt;
+        
+        background-color: #555555;
+        color: #555555;
+        text-align: center;
+
     }
 
 }

@@ -79,75 +79,6 @@ button:hover{
     box-shadow: 0pt 3pt 8pt rgba(0, 0, 0, 0.2);
 }
 
-// Tab Bar
-.tabbar {
-
-    display: flex;
-    background-color: #555555;
-    overflow: hidden;
-    padding: 5pt 0 0 0;
-
-    // Remove link styling
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
-
-    // The current page
-    .tab {
-
-        height: 50pt;
-        min-width: 80pt;
-        width: 10%; // 128pt
-        padding: auto;
-
-        background-color: #FFFFFF;
-        box-shadow: 0 3pt 8pt rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-
-        text-align: center;
-
-    }
-
-    .tab:hover {
-        box-shadow: 0 1pt 8pt rgba(0, 0, 0, 0.4);
-    }
-
-    .tab_deselected {
-
-        height: 48pt;
-        min-width: 80pt;
-        width: 10%; // 128pt
-        padding: auto;
-        
-        background-color: #555555;
-        color: #FFFFFF;
-        border: 1pt solid #444444;
-        text-align: center;
-        transition: 0.3s;
-
-    }
-
-    .tab_deselected:hover {
-        text-shadow: 0pt 3pt 8pt rgba(255, 255, 255, 0.2);
-    }
-
-    // An invisible tab to prevent the tabs from starting at the edge
-    .tab_spacer {
-
-        height: 48pt;
-        width: 10%; // 128pt
-        padding: auto;
-        font-size: 0.1pt;
-        
-        background-color: #555555;
-        color: #555555;
-        text-align: center;
-
-    }
-
-}
-
 // Banner image CSS
 .banner {
 
@@ -168,6 +99,14 @@ button:hover{
     color: #FFFFFF;
     border-radius: 10pt;
 
+    // CSS Transition
+    transition: 0.3s;
+
+    // Center content
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+
     // The text overlayed on the banner
     .banner_content {
 
@@ -177,6 +116,13 @@ button:hover{
 
     }
 
+}
+
+.banner:hover {
+    max-width: 90%;
+    width: 90%;
+    height: 200pt;
+    box-shadow: 0 3pt 8pt rgba(0, 0, 0, 0.2);
 }
 
 // Site body content
