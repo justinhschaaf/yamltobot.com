@@ -14,8 +14,7 @@
       </div>
 
       <div class="card_content">
-        <button class="button discord" (click)="download(latest, 'discord')"><h3>Discord</h3></button>
-        <button class="button twitch" (click)="download(latest, 'twitch')"><h3>Twitch</h3></button>
+        <y2b-download-buttons [release]="latest"></y2b-download-buttons>
       </div>
 
     </div>
@@ -28,8 +27,7 @@
       </div>
 
       <div class="card_content">
-        <button class="button discord" (click)="download(latestPre, 'discord')"><h3>Discord</h3></button>
-        <button class="button twitch" (click)="download(latestPre, 'twitch')"><h3>Twitch</h3></button>
+        <y2b-download-buttons [release]="latestPre"></y2b-download-buttons>
       </div>
 
     </div>
@@ -51,12 +49,13 @@
       <div *ngFor="let release of releases; index as i" class="downloads_table_item">
   
         <!--The [ngClass] updates depending on if it's the latest stable release or if it is a prerelease-->
-        <div [ngClass]="{'pre': release.prerelease, 'stable': i == 0 && !release.prerelease }" class="downloads_table_item_name">
+        <div [ngClass]="{'pre': release.prerelease && release.tag_name.includes('PRE'), 'stable': !release.prerelease, 'indev': release.prerelease && release.tag_name.includes('INDEV') }" class="downloads_table_item_name">
           <h4>{{ release.name }}</h4>
         </div>
   
-        <button class="button discord" (click)="download(release, 'discord')"><h3>Discord</h3></button>
-        <button class="button twitch" (click)="download(release, 'twitch')"><h3>Twitch</h3></button>
+        <div class="downloads_table_item_buttons">
+          <y2b-download-buttons [release]="release"></y2b-download-buttons>
+        </div>
   
       </div>
   

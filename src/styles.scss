@@ -33,8 +33,8 @@ button {
 }
 
 // Button hover effect
-button:hover{
-    text-shadow: 0pt 3pt 8pt rgba(0, 0, 0, 0.2);
+button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 // Styles for different YamlToBot platforms
@@ -45,6 +45,11 @@ button:hover{
 
 .twitch {
     background-color: #6441A4;
+    color: #ffffff;
+}
+
+.mixer {
+    background-color: #00BCF2;
     color: #ffffff;
 }
 

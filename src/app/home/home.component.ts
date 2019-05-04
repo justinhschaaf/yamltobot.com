@@ -9,20 +9,23 @@ import { DownloadsService } from '../downloads.service';
 })
 export class HomeComponent implements OnInit {
 
+  release: {};
+
   constructor(private downloadService: DownloadsService) {
+
+    // Create a local instance of HomeComponent.
+    // It's redundant, I know, but JS has no better
+    // way of calling "this" in the .then() function
+    var hc = this;
+
+    // Get the latest release object
+    downloadService.getLatestRelease().then(function(release) {
+      hc.release = release;
+    });
+
   }
 
   ngOnInit() {
-  }
-
-  // Get the proper latest download link from the Download Service and send the user there
-  download(module: string) {
-
-    var ds = this.downloadService;
-    ds.getLatestRelease().then(function(release) {
-      window.open(ds.getServiceDownloadLink(release, module));
-    });
-
   }
 
 }

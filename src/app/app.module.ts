@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DownloadsComponent } from './downloads/downloads.component';
+import { DownloadButtonsComponent } from './download-buttons/download-buttons.component';
 import { WikiComponent } from './wiki/wiki.component';
 
 // Website services
@@ -22,7 +23,8 @@ import { WikiService } from './wiki.service';
     AppComponent,
     HomeComponent,
     DownloadsComponent,
-    WikiComponent
+    WikiComponent,
+    DownloadButtonsComponent
   ],
   imports: [
     BrowserModule,

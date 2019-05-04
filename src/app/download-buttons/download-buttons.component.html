@@ -1,0 +1,5 @@
+<div class="download_buttons">
+  <button class="button discord" [ngClass]="{ 'hidden': !hasDiscord }" (click)="download(release, 'discord')"><h3>Discord</h3></button>
+  <button class="button twitch" [ngClass]="{ 'hidden': !hasTwitch }"  (click)="download(release, 'twitch')"><h3>Twitch</h3></button>
+  <button class="button mixer" [ngClass]="{ 'hidden': !hasMixer }"  (click)="download(release, 'mixer')"><h3>Mixer</h3></button>
+</div>

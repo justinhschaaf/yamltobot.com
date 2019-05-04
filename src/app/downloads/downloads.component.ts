@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DownloadsService } from '../downloads.service';
+import { strictEqual } from 'assert';
 
 @Component({
   selector: 'y2b-downloads',
@@ -37,14 +38,6 @@ export class DownloadsComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  // The function for downloading a file. It gets the 
-  // download link from the release and sends the user there.
-  download(release: {}, service: string) {
-
-    window.open(this.downloadService.getServiceDownloadLink(release, service));
-
   }
 
 }
