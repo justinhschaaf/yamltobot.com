@@ -1,0 +1,49 @@
+// For the heading that says "Downloads" to title the webpage
+.title {
+
+    padding: 1pt;
+
+    text-align: center;
+    border-bottom: 0.5pt solid #cccccc;
+
+}
+
+// Colors for a stable release
+.stable {
+    background-color: #eeffee;
+    color: #008800;
+}
+
+// Colors for a prerelease
+.pre {
+    background-color: #eeeeff;
+    color: #000088;
+}
+
+// Colors for an indev build
+.indev {
+    background-color: #ffeeee;
+    color: #880000;
+}
+
+.release_title {
+
+    height: 48pt;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    justify-items: center;
+
+    .name {
+        width: 50%;
+        text-align: center;
+    }
+
+    .download_buttons {
+        width: 50%;
+        height: 100%;
+    }
+
+}

@@ -1,0 +1,27 @@
+
+<!--The body of the webpage-->
+<div class="content">
+
+  <h1 class="title">Downloads</h1>
+
+  <div class="info">
+
+    <div class="release_title card"  [ngClass]="{'pre': release.prerelease && release.tag_name.includes('PRE'), 'stable': !release.prerelease, 'indev': release.prerelease && release.tag_name.includes('INDEV') }">
+
+      <div class="name">
+        <h2>{{ release.name }}</h2>
+      </div>
+  
+      <div class="download_buttons">
+        <y2b-download-buttons [release]="release"></y2b-download-buttons>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="body">
+    <markdown id="changes">{{ release.body }}</markdown>
+  </div>
+
+</div>

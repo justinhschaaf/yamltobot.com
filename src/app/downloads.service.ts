@@ -112,6 +112,32 @@ export class DownloadsService {
 
   /**
    * 
+   * Gets a certain release from GitHub
+   * 
+   * @param id The id of the release
+   * 
+   * @returns a Promise of an array of release objects
+   * 
+   */
+  public getRelease(id: Number): Promise<{}> {
+
+    return new Promise((resolve, reject) => {
+
+      // Most of this is based on https://egghead.io/lessons/angular-fetch-data-from-an-api-using-the-httpclient-in-angular
+      var releasesHttp = this.http.get(this.url + "/" + id);
+      releasesHttp.forEach((value) => {
+        
+        var release = value;
+        resolve(release);
+
+      });
+
+    });
+
+  }
+
+  /**
+   * 
    * Get a download link from the given release
    * 
    * @param release The release object which you want to get the download link from

@@ -49,7 +49,7 @@
       <div *ngFor="let release of releases; index as i" class="downloads_table_item">
   
         <!--The [ngClass] updates depending on if it's the latest stable release or if it is a prerelease-->
-        <div [ngClass]="{'pre': release.prerelease && release.tag_name.includes('PRE'), 'stable': !release.prerelease, 'indev': release.prerelease && release.tag_name.includes('INDEV') }" class="downloads_table_item_name">
+        <div routerLink="/download/{{ release.id }}" [ngClass]="{'pre': release.prerelease && release.tag_name.includes('PRE'), 'stable': !release.prerelease, 'indev': release.prerelease && release.tag_name.includes('INDEV') }" class="downloads_table_item_name">
           <h4>{{ release.name }}</h4>
         </div>
   

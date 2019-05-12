@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { DownloadsComponent } from './downloads/downloads.component';
 import { WikiComponent } from './wiki/wiki.component';
+import { DownloadDetailsComponent } from './download-details/download-details.component';
 
 // The routes for the Angular router
 const routes: Routes = [
@@ -19,6 +20,12 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+
+  // Download details page
+  {
+    path: 'download/:id',
+    component: DownloadDetailsComponent
   },
   
   // Downloads Page

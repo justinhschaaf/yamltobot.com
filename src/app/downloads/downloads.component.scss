@@ -75,6 +75,12 @@
             .downloads_table_item_name {
                 width: 50%;
                 text-align: center;
+                transition: 0.3s;
+            }
+
+            .downloads_table_item_name:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+                color: #ffffff;
             }
 
             .downloads_table_item_buttons {

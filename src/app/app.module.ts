@@ -17,6 +17,7 @@ import { WikiComponent } from './wiki/wiki.component';
 // Website services
 import { DownloadsService } from './downloads.service';
 import { WikiService } from './wiki.service';
+import { DownloadDetailsComponent } from './download-details/download-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { WikiService } from './wiki.service';
     HomeComponent,
     DownloadsComponent,
     WikiComponent,
-    DownloadButtonsComponent
+    DownloadButtonsComponent,
+    DownloadDetailsComponent
   ],
   imports: [
     BrowserModule,

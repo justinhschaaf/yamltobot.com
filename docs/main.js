@@ -39,6 +39,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _downloads_downloads_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./downloads/downloads.component */ "./src/app/downloads/downloads.component.ts");
 /* harmony import */ var _wiki_wiki_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./wiki/wiki.component */ "./src/app/wiki/wiki.component.ts");
+/* harmony import */ var _download_details_download_details_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./download-details/download-details.component */ "./src/app/download-details/download-details.component.ts");
+
 
 
 
@@ -57,6 +59,11 @@ var routes = [
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
+    },
+    // Download details page
+    {
+        path: 'download/:id',
+        component: _download_details_download_details_component__WEBPACK_IMPORTED_MODULE_6__["DownloadDetailsComponent"]
     },
     // Downloads Page
     {
@@ -178,6 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wiki_wiki_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./wiki/wiki.component */ "./src/app/wiki/wiki.component.ts");
 /* harmony import */ var _downloads_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./downloads.service */ "./src/app/downloads.service.ts");
 /* harmony import */ var _wiki_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./wiki.service */ "./src/app/wiki.service.ts");
+/* harmony import */ var _download_details_download_details_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./download-details/download-details.component */ "./src/app/download-details/download-details.component.ts");
 
 // Stuff from Angular
 
@@ -195,6 +203,7 @@ __webpack_require__.r(__webpack_exports__);
 // Website services
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -205,7 +214,8 @@ var AppModule = /** @class */ (function () {
                 _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
                 _downloads_downloads_component__WEBPACK_IMPORTED_MODULE_8__["DownloadsComponent"],
                 _wiki_wiki_component__WEBPACK_IMPORTED_MODULE_10__["WikiComponent"],
-                _download_buttons_download_buttons_component__WEBPACK_IMPORTED_MODULE_9__["DownloadButtonsComponent"]
+                _download_buttons_download_buttons_component__WEBPACK_IMPORTED_MODULE_9__["DownloadButtonsComponent"],
+                _download_details_download_details_component__WEBPACK_IMPORTED_MODULE_13__["DownloadDetailsComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -317,6 +327,74 @@ var DownloadButtonsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/download-details/download-details.component.html":
+/*!******************************************************************!*\
+  !*** ./src/app/download-details/download-details.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<!--The body of the webpage-->\n<div class=\"content\">\n\n  <h1 class=\"title\">Downloads</h1>\n\n  <div class=\"info\">\n\n    <div class=\"release_title card\"  [ngClass]=\"{'pre': release.prerelease && release.tag_name.includes('PRE'), 'stable': !release.prerelease, 'indev': release.prerelease && release.tag_name.includes('INDEV') }\">\n\n      <div class=\"name\">\n        <h2>{{ release.name }}</h2>\n      </div>\n  \n      <div class=\"download_buttons\">\n        <y2b-download-buttons [release]=\"release\"></y2b-download-buttons>\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class=\"body\">\n    <markdown id=\"changes\">{{ release.body }}</markdown>\n  </div>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/download-details/download-details.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/download-details/download-details.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".title {\n  padding: 1pt;\n  text-align: center;\n  border-bottom: 0.5pt solid #cccccc; }\n\n.stable {\n  background-color: #eeffee;\n  color: #008800; }\n\n.pre {\n  background-color: #eeeeff;\n  color: #000088; }\n\n.indev {\n  background-color: #ffeeee;\n  color: #880000; }\n\n.release_title {\n  height: 48pt;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  justify-content: center;\n  justify-items: center; }\n\n.release_title .name {\n    width: 50%;\n    text-align: center; }\n\n.release_title .download_buttons {\n    width: 50%;\n    height: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZG93bmxvYWQtZGV0YWlscy9DOlxcVXNlcnNcXGp1c3RpXFxQcm9ncmFtbWluZ1xcWWFtbFRvQm90XFx5YW1sdG9ib3QuY29tL3NyY1xcYXBwXFxkb3dubG9hZC1kZXRhaWxzXFxkb3dubG9hZC1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBRUksWUFBWTtFQUVaLGtCQUFrQjtFQUNsQixrQ0FBa0MsRUFBQTs7QUFLdEM7RUFDSSx5QkFBeUI7RUFDekIsY0FBYyxFQUFBOztBQUlsQjtFQUNJLHlCQUF5QjtFQUN6QixjQUFjLEVBQUE7O0FBSWxCO0VBQ0kseUJBQXlCO0VBQ3pCLGNBQWMsRUFBQTs7QUFHbEI7RUFFSSxZQUFZO0VBRVosYUFBYTtFQUNiLG1CQUFtQjtFQUNuQixpQkFBaUI7RUFDakIsdUJBQXVCO0VBQ3ZCLHFCQUFxQixFQUFBOztBQVJ6QjtJQVdRLFVBQVU7SUFDVixrQkFBa0IsRUFBQTs7QUFaMUI7SUFnQlEsVUFBVTtJQUNWLFlBQVksRUFBQSIsImZpbGUiOiJzcmMvYXBwL2Rvd25sb2FkLWRldGFpbHMvZG93bmxvYWQtZGV0YWlscy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIEZvciB0aGUgaGVhZGluZyB0aGF0IHNheXMgXCJEb3dubG9hZHNcIiB0byB0aXRsZSB0aGUgd2VicGFnZVxyXG4udGl0bGUge1xyXG5cclxuICAgIHBhZGRpbmc6IDFwdDtcclxuXHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBib3JkZXItYm90dG9tOiAwLjVwdCBzb2xpZCAjY2NjY2NjO1xyXG5cclxufVxyXG5cclxuLy8gQ29sb3JzIGZvciBhIHN0YWJsZSByZWxlYXNlXHJcbi5zdGFibGUge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2VlZmZlZTtcclxuICAgIGNvbG9yOiAjMDA4ODAwO1xyXG59XHJcblxyXG4vLyBDb2xvcnMgZm9yIGEgcHJlcmVsZWFzZVxyXG4ucHJlIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNlZWVlZmY7XHJcbiAgICBjb2xvcjogIzAwMDA4ODtcclxufVxyXG5cclxuLy8gQ29sb3JzIGZvciBhbiBpbmRldiBidWlsZFxyXG4uaW5kZXYge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZWVlZTtcclxuICAgIGNvbG9yOiAjODgwMDAwO1xyXG59XHJcblxyXG4ucmVsZWFzZV90aXRsZSB7XHJcblxyXG4gICAgaGVpZ2h0OiA0OHB0O1xyXG4gICAgXHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICAgIGZsZXgtd3JhcDogbm93cmFwO1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgICBqdXN0aWZ5LWl0ZW1zOiBjZW50ZXI7XHJcblxyXG4gICAgLm5hbWUge1xyXG4gICAgICAgIHdpZHRoOiA1MCU7XHJcbiAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgfVxyXG5cclxuICAgIC5kb3dubG9hZF9idXR0b25zIHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgIGhlaWdodDogMTAwJTtcclxuICAgIH1cclxuXHJcbn1cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/download-details/download-details.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/download-details/download-details.component.ts ***!
+  \****************************************************************/
+/*! exports provided: DownloadDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DownloadDetailsComponent", function() { return DownloadDetailsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _downloads_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../downloads.service */ "./src/app/downloads.service.ts");
+
+
+
+
+var DownloadDetailsComponent = /** @class */ (function () {
+    function DownloadDetailsComponent(route, ds) {
+        this.route = route;
+        this.ds = ds;
+        var ddc = this;
+        var id = parseInt(this.route.snapshot.paramMap.get("id"));
+        ds.getRelease(id).then(function (release) {
+            ddc.release = release;
+        });
+    }
+    DownloadDetailsComponent.prototype.ngOnInit = function () {
+    };
+    DownloadDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'y2b-download-details',
+            template: __webpack_require__(/*! ./download-details.component.html */ "./src/app/download-details/download-details.component.html"),
+            styles: [__webpack_require__(/*! ./download-details.component.scss */ "./src/app/download-details/download-details.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _downloads_service__WEBPACK_IMPORTED_MODULE_3__["DownloadsService"]])
+    ], DownloadDetailsComponent);
+    return DownloadDetailsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/downloads.service.ts":
 /*!**************************************!*\
   !*** ./src/app/downloads.service.ts ***!
@@ -411,6 +489,26 @@ var DownloadsService = /** @class */ (function () {
     };
     /**
      *
+     * Gets a certain release from GitHub
+     *
+     * @param id The id of the release
+     *
+     * @returns a Promise of an array of release objects
+     *
+     */
+    DownloadsService.prototype.getRelease = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            // Most of this is based on https://egghead.io/lessons/angular-fetch-data-from-an-api-using-the-httpclient-in-angular
+            var releasesHttp = _this.http.get(_this.url + "/" + id);
+            releasesHttp.forEach(function (value) {
+                var release = value;
+                resolve(release);
+            });
+        });
+    };
+    /**
+     *
      * Get a download link from the given release
      *
      * @param release The release object which you want to get the download link from
@@ -449,7 +547,7 @@ var DownloadsService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<!--The body of the webpage-->\n<div class=\"content\">\n\n  <h1 class=\"title\">Downloads</h1>\n\n  <div class=\"featured\">\n\n    <!--The latest stable release-->\n    <div class=\"card\">\n\n      <div class=\"card_header stable\">\n        <h3>Latest Release</h3>\n      </div>\n\n      <div class=\"card_content\">\n        <y2b-download-buttons [release]=\"latest\"></y2b-download-buttons>\n      </div>\n\n    </div>\n\n    <!--The latest prerelease-->\n    <div class=\"card\">\n\n      <div class=\"card_header pre\">\n        <h3>Latest Pre Release</h3>\n      </div>\n\n      <div class=\"card_content\">\n        <y2b-download-buttons [release]=\"latestPre\"></y2b-download-buttons>\n      </div>\n\n    </div>\n\n  </div>\n\n  <br>\n\n  <!--The table containing all of the releases-->\n  <div class=\"downloads_table\">\n\n    <div class=\"card\">\n  \n      <div class=\"card_header\">\n        <h3>Other Downloads</h3>\n      </div>\n  \n      <!--Iterate through each release-->\n      <div *ngFor=\"let release of releases; index as i\" class=\"downloads_table_item\">\n  \n        <!--The [ngClass] updates depending on if it's the latest stable release or if it is a prerelease-->\n        <div [ngClass]=\"{'pre': release.prerelease && release.tag_name.includes('PRE'), 'stable': !release.prerelease, 'indev': release.prerelease && release.tag_name.includes('INDEV') }\" class=\"downloads_table_item_name\">\n          <h4>{{ release.name }}</h4>\n        </div>\n  \n        <div class=\"downloads_table_item_buttons\">\n          <y2b-download-buttons [release]=\"release\"></y2b-download-buttons>\n        </div>\n  \n      </div>\n  \n    </div>\n\n  </div>\n\n</div>\n"
+module.exports = "\n<!--The body of the webpage-->\n<div class=\"content\">\n\n  <h1 class=\"title\">Downloads</h1>\n\n  <div class=\"featured\">\n\n    <!--The latest stable release-->\n    <div class=\"card\">\n\n      <div class=\"card_header stable\">\n        <h3>Latest Release</h3>\n      </div>\n\n      <div class=\"card_content\">\n        <y2b-download-buttons [release]=\"latest\"></y2b-download-buttons>\n      </div>\n\n    </div>\n\n    <!--The latest prerelease-->\n    <div class=\"card\">\n\n      <div class=\"card_header pre\">\n        <h3>Latest Pre Release</h3>\n      </div>\n\n      <div class=\"card_content\">\n        <y2b-download-buttons [release]=\"latestPre\"></y2b-download-buttons>\n      </div>\n\n    </div>\n\n  </div>\n\n  <br>\n\n  <!--The table containing all of the releases-->\n  <div class=\"downloads_table\">\n\n    <div class=\"card\">\n  \n      <div class=\"card_header\">\n        <h3>Other Downloads</h3>\n      </div>\n  \n      <!--Iterate through each release-->\n      <div *ngFor=\"let release of releases; index as i\" class=\"downloads_table_item\">\n  \n        <!--The [ngClass] updates depending on if it's the latest stable release or if it is a prerelease-->\n        <div routerLink=\"/download/{{ release.id }}\" [ngClass]=\"{'pre': release.prerelease && release.tag_name.includes('PRE'), 'stable': !release.prerelease, 'indev': release.prerelease && release.tag_name.includes('INDEV') }\" class=\"downloads_table_item_name\">\n          <h4>{{ release.name }}</h4>\n        </div>\n  \n        <div class=\"downloads_table_item_buttons\">\n          <y2b-download-buttons [release]=\"release\"></y2b-download-buttons>\n        </div>\n  \n      </div>\n  \n    </div>\n\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -460,7 +558,7 @@ module.exports = "\n<!--The body of the webpage-->\n<div class=\"content\">\n\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".title {\n  padding: 1pt;\n  text-align: center;\n  border-bottom: 0.5pt solid #cccccc; }\n\n.stable {\n  background-color: #eeffee;\n  color: #008800; }\n\n.pre {\n  background-color: #eeeeff;\n  color: #000088; }\n\n.indev {\n  background-color: #ffeeee;\n  color: #880000; }\n\n.featured {\n  display: flex; }\n\n.featured .card {\n    width: 45%;\n    margin: auto; }\n\n.featured .card .card_content {\n      padding: 0pt;\n      display: flex;\n      width: 100%;\n      height: 48pt; }\n\n.featured .card .card_content y2b-download-buttons {\n        width: 100%; }\n\n.downloads_table .card {\n  width: 95%;\n  margin: auto; }\n\n.downloads_table .card .downloads_table_item {\n    border-top: 1pt solid #cccccc;\n    display: flex;\n    height: 48pt; }\n\n.downloads_table .card .downloads_table_item .downloads_table_item_name {\n      width: 50%;\n      text-align: center; }\n\n.downloads_table .card .downloads_table_item .downloads_table_item_buttons {\n      width: 50%;\n      height: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZG93bmxvYWRzL0M6XFxVc2Vyc1xcanVzdGlcXFByb2dyYW1taW5nXFxZYW1sVG9Cb3RcXHlhbWx0b2JvdC5jb20vc3JjXFxhcHBcXGRvd25sb2Fkc1xcZG93bmxvYWRzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBRUksWUFBWTtFQUVaLGtCQUFrQjtFQUNsQixrQ0FBa0MsRUFBQTs7QUFLdEM7RUFDSSx5QkFBeUI7RUFDekIsY0FBYyxFQUFBOztBQUlsQjtFQUNJLHlCQUF5QjtFQUN6QixjQUFjLEVBQUE7O0FBSWxCO0VBQ0kseUJBQXlCO0VBQ3pCLGNBQWMsRUFBQTs7QUFJbEI7RUFFSSxhQUFhLEVBQUE7O0FBRmpCO0lBT1EsVUFBVTtJQUNWLFlBQVksRUFBQTs7QUFScEI7TUFZWSxZQUFZO01BQ1osYUFBYTtNQUNiLFdBQVc7TUFDWCxZQUFZLEVBQUE7O0FBZnhCO1FBbUJnQixXQUFXLEVBQUE7O0FBVzNCO0VBS1EsVUFBVTtFQUNWLFlBQVksRUFBQTs7QUFOcEI7SUFXWSw2QkFBNkI7SUFDN0IsYUFBYTtJQUNiLFlBQVksRUFBQTs7QUFieEI7TUFnQmdCLFVBQVU7TUFDVixrQkFBa0IsRUFBQTs7QUFqQmxDO01BcUJnQixVQUFVO01BQ1YsWUFBWSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvZG93bmxvYWRzL2Rvd25sb2Fkcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIEZvciB0aGUgaGVhZGluZyB0aGF0IHNheXMgXCJEb3dubG9hZHNcIiB0byB0aXRsZSB0aGUgd2VicGFnZVxyXG4udGl0bGUge1xyXG5cclxuICAgIHBhZGRpbmc6IDFwdDtcclxuXHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBib3JkZXItYm90dG9tOiAwLjVwdCBzb2xpZCAjY2NjY2NjO1xyXG5cclxufVxyXG5cclxuLy8gQ29sb3JzIGZvciBhIHN0YWJsZSByZWxlYXNlXHJcbi5zdGFibGUge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2VlZmZlZTtcclxuICAgIGNvbG9yOiAjMDA4ODAwO1xyXG59XHJcblxyXG4vLyBDb2xvcnMgZm9yIGEgcHJlcmVsZWFzZVxyXG4ucHJlIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNlZWVlZmY7XHJcbiAgICBjb2xvcjogIzAwMDA4ODtcclxufVxyXG5cclxuLy8gQ29sb3JzIGZvciBhbiBpbmRldiBidWlsZFxyXG4uaW5kZXYge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZWVlZTtcclxuICAgIGNvbG9yOiAjODgwMDAwO1xyXG59XHJcblxyXG4vLyBGZWF0dXJlZCBkb3dubG9hZHNcclxuLmZlYXR1cmVkIHtcclxuXHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG5cclxuICAgIC8vIENhcmQgZWxlbWVudCBjdXN0b21pemF0aW9uc1xyXG4gICAgLmNhcmQge1xyXG5cclxuICAgICAgICB3aWR0aDogNDUlO1xyXG4gICAgICAgIG1hcmdpbjogYXV0bztcclxuXHJcbiAgICAgICAgLmNhcmRfY29udGVudCB7XHJcbiAgICAgICAgICAgIFxyXG4gICAgICAgICAgICBwYWRkaW5nOiAwcHQ7XHJcbiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICAgICAgICBoZWlnaHQ6IDQ4cHQ7XHJcblxyXG4gICAgICAgICAgICB5MmItZG93bmxvYWQtYnV0dG9ucyB7XHJcblxyXG4gICAgICAgICAgICAgICAgd2lkdGg6IDEwMCU7XHJcblxyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgIH1cclxuXHJcbiAgICB9XHJcblxyXG59XHJcblxyXG4vLyBUaGUgdGFibGUgb2YgZG93bmxvYWRzXHJcbi5kb3dubG9hZHNfdGFibGUge1xyXG5cclxuICAgIC8vIENhcmQgZWxlbWVudCBjdXN0b21pemF0aW9uc1xyXG4gICAgLmNhcmQge1xyXG5cclxuICAgICAgICB3aWR0aDogOTUlO1xyXG4gICAgICAgIG1hcmdpbjogYXV0bztcclxuXHJcbiAgICAgICAgLy8gQSByb3cgaW4gdGhlIHRhYmxlXHJcbiAgICAgICAgLmRvd25sb2Fkc190YWJsZV9pdGVtIHtcclxuXHJcbiAgICAgICAgICAgIGJvcmRlci10b3A6IDFwdCBzb2xpZCAjY2NjY2NjO1xyXG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICAgICAgICBoZWlnaHQ6IDQ4cHQ7XHJcblxyXG4gICAgICAgICAgICAuZG93bmxvYWRzX3RhYmxlX2l0ZW1fbmFtZSB7XHJcbiAgICAgICAgICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgICAgICAuZG93bmxvYWRzX3RhYmxlX2l0ZW1fYnV0dG9ucyB7XHJcbiAgICAgICAgICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgICAgICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgIH1cclxuXHJcbiAgICB9XHJcblxyXG59XHJcbiJdfQ== */"
+module.exports = ".title {\n  padding: 1pt;\n  text-align: center;\n  border-bottom: 0.5pt solid #cccccc; }\n\n.stable {\n  background-color: #eeffee;\n  color: #008800; }\n\n.pre {\n  background-color: #eeeeff;\n  color: #000088; }\n\n.indev {\n  background-color: #ffeeee;\n  color: #880000; }\n\n.featured {\n  display: flex; }\n\n.featured .card {\n    width: 45%;\n    margin: auto; }\n\n.featured .card .card_content {\n      padding: 0pt;\n      display: flex;\n      width: 100%;\n      height: 48pt; }\n\n.featured .card .card_content y2b-download-buttons {\n        width: 100%; }\n\n.downloads_table .card {\n  width: 95%;\n  margin: auto; }\n\n.downloads_table .card .downloads_table_item {\n    border-top: 1pt solid #cccccc;\n    display: flex;\n    height: 48pt; }\n\n.downloads_table .card .downloads_table_item .downloads_table_item_name {\n      width: 50%;\n      text-align: center;\n      transition: 0.3s; }\n\n.downloads_table .card .downloads_table_item .downloads_table_item_name:hover {\n      background-color: rgba(0, 0, 0, 0.2);\n      color: #ffffff; }\n\n.downloads_table .card .downloads_table_item .downloads_table_item_buttons {\n      width: 50%;\n      height: 100%; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZG93bmxvYWRzL0M6XFxVc2Vyc1xcanVzdGlcXFByb2dyYW1taW5nXFxZYW1sVG9Cb3RcXHlhbWx0b2JvdC5jb20vc3JjXFxhcHBcXGRvd25sb2Fkc1xcZG93bmxvYWRzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBRUksWUFBWTtFQUVaLGtCQUFrQjtFQUNsQixrQ0FBa0MsRUFBQTs7QUFLdEM7RUFDSSx5QkFBeUI7RUFDekIsY0FBYyxFQUFBOztBQUlsQjtFQUNJLHlCQUF5QjtFQUN6QixjQUFjLEVBQUE7O0FBSWxCO0VBQ0kseUJBQXlCO0VBQ3pCLGNBQWMsRUFBQTs7QUFJbEI7RUFFSSxhQUFhLEVBQUE7O0FBRmpCO0lBT1EsVUFBVTtJQUNWLFlBQVksRUFBQTs7QUFScEI7TUFZWSxZQUFZO01BQ1osYUFBYTtNQUNiLFdBQVc7TUFDWCxZQUFZLEVBQUE7O0FBZnhCO1FBbUJnQixXQUFXLEVBQUE7O0FBVzNCO0VBS1EsVUFBVTtFQUNWLFlBQVksRUFBQTs7QUFOcEI7SUFXWSw2QkFBNkI7SUFDN0IsYUFBYTtJQUNiLFlBQVksRUFBQTs7QUFieEI7TUFnQmdCLFVBQVU7TUFDVixrQkFBa0I7TUFDbEIsZ0JBQWdCLEVBQUE7O0FBbEJoQztNQXNCZ0Isb0NBQW9DO01BQ3BDLGNBQWMsRUFBQTs7QUF2QjlCO01BMkJnQixVQUFVO01BQ1YsWUFBWSxFQUFBIiwiZmlsZSI6InNyYy9hcHAvZG93bmxvYWRzL2Rvd25sb2Fkcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIEZvciB0aGUgaGVhZGluZyB0aGF0IHNheXMgXCJEb3dubG9hZHNcIiB0byB0aXRsZSB0aGUgd2VicGFnZVxyXG4udGl0bGUge1xyXG5cclxuICAgIHBhZGRpbmc6IDFwdDtcclxuXHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBib3JkZXItYm90dG9tOiAwLjVwdCBzb2xpZCAjY2NjY2NjO1xyXG5cclxufVxyXG5cclxuLy8gQ29sb3JzIGZvciBhIHN0YWJsZSByZWxlYXNlXHJcbi5zdGFibGUge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2VlZmZlZTtcclxuICAgIGNvbG9yOiAjMDA4ODAwO1xyXG59XHJcblxyXG4vLyBDb2xvcnMgZm9yIGEgcHJlcmVsZWFzZVxyXG4ucHJlIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNlZWVlZmY7XHJcbiAgICBjb2xvcjogIzAwMDA4ODtcclxufVxyXG5cclxuLy8gQ29sb3JzIGZvciBhbiBpbmRldiBidWlsZFxyXG4uaW5kZXYge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZWVlZTtcclxuICAgIGNvbG9yOiAjODgwMDAwO1xyXG59XHJcblxyXG4vLyBGZWF0dXJlZCBkb3dubG9hZHNcclxuLmZlYXR1cmVkIHtcclxuXHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG5cclxuICAgIC8vIENhcmQgZWxlbWVudCBjdXN0b21pemF0aW9uc1xyXG4gICAgLmNhcmQge1xyXG5cclxuICAgICAgICB3aWR0aDogNDUlO1xyXG4gICAgICAgIG1hcmdpbjogYXV0bztcclxuXHJcbiAgICAgICAgLmNhcmRfY29udGVudCB7XHJcbiAgICAgICAgICAgIFxyXG4gICAgICAgICAgICBwYWRkaW5nOiAwcHQ7XHJcbiAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgICAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgICAgICAgICBoZWlnaHQ6IDQ4cHQ7XHJcblxyXG4gICAgICAgICAgICB5MmItZG93bmxvYWQtYnV0dG9ucyB7XHJcblxyXG4gICAgICAgICAgICAgICAgd2lkdGg6IDEwMCU7XHJcblxyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgIH1cclxuXHJcbiAgICB9XHJcblxyXG59XHJcblxyXG4vLyBUaGUgdGFibGUgb2YgZG93bmxvYWRzXHJcbi5kb3dubG9hZHNfdGFibGUge1xyXG5cclxuICAgIC8vIENhcmQgZWxlbWVudCBjdXN0b21pemF0aW9uc1xyXG4gICAgLmNhcmQge1xyXG5cclxuICAgICAgICB3aWR0aDogOTUlO1xyXG4gICAgICAgIG1hcmdpbjogYXV0bztcclxuXHJcbiAgICAgICAgLy8gQSByb3cgaW4gdGhlIHRhYmxlXHJcbiAgICAgICAgLmRvd25sb2Fkc190YWJsZV9pdGVtIHtcclxuXHJcbiAgICAgICAgICAgIGJvcmRlci10b3A6IDFwdCBzb2xpZCAjY2NjY2NjO1xyXG4gICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICAgICAgICBoZWlnaHQ6IDQ4cHQ7XHJcblxyXG4gICAgICAgICAgICAuZG93bmxvYWRzX3RhYmxlX2l0ZW1fbmFtZSB7XHJcbiAgICAgICAgICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgICAgICAgICAgICAgdHJhbnNpdGlvbjogMC4zcztcclxuICAgICAgICAgICAgfVxyXG5cclxuICAgICAgICAgICAgLmRvd25sb2Fkc190YWJsZV9pdGVtX25hbWU6aG92ZXIge1xyXG4gICAgICAgICAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjIpO1xyXG4gICAgICAgICAgICAgICAgY29sb3I6ICNmZmZmZmY7XHJcbiAgICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAgIC5kb3dubG9hZHNfdGFibGVfaXRlbV9idXR0b25zIHtcclxuICAgICAgICAgICAgICAgIHdpZHRoOiA1MCU7XHJcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgfVxyXG5cclxuICAgIH1cclxuXHJcbn1cclxuIl19 */"
 
 /***/ }),
 
